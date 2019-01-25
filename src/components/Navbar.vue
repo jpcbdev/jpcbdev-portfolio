@@ -2,10 +2,10 @@
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#home">
+        <router-link tag="a" :to="{name: 'home'}" class="navbar-item">
           <i class="fab fa-sith fa-1x"></i>
-        </a>
-        
+        </router-link>
+
         <a
           role="button"
           class="navbar-burger burger"
@@ -21,10 +21,10 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
-          <a href="#home" class="navbar-item">Home</a>
-          <a href="#services" class="navbar-item">Servicios</a>
-          <a href="#about" class="navbar-item">Sobre mí</a>
-          <a href="#contact" class="navbar-item">Contácto</a>
+          <router-link tag="a" :to="{name: 'home'}" class="navbar-item">Inicio</router-link>
+          <router-link tag="a" :to="{name: 'services'}" class="navbar-item">Servicios</router-link>
+          <router-link tag="a" :to="{name: 'about'}" class="navbar-item">Sobre mí</router-link>
+          <router-link tag="a" :to="{name: 'contact'}" class="navbar-item">Contácto</router-link>
         </div>
       </div>
     </div>
@@ -41,6 +41,9 @@ export default {
 };
 </script>
 <style scoped>
+nav {
+  width: 100%;
+}
 nav,
 a:hover,
 .navbar-dropdown,

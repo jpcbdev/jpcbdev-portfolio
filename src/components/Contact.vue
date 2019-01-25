@@ -1,5 +1,5 @@
 <template>
-  <section class="section" id="contact">
+  <section class="section">
     <div data-aos="fade-up">
       <div class="container">
         <div class="section-heading">
@@ -8,11 +8,7 @@
         <div class="columns">
           <div class="column is-4 is-offset-4">
             <div class="box">
-              <form
-                action="https://formspree.io/jpcbdev@gmail.com"
-                method="POST"
-                @click="$_validate"
-              >
+              <form action="https://formspree.io/jpcbdev@gmail.com" method="POST">
                 <div class="field">
                   <label class="label">Nombre</label>
                   <div class="control">
@@ -69,10 +65,13 @@ export default {
       form: {}
     };
   },
+  mounted() {
+    this.$_loadPlugins();
+  },
   methods: {
-    $_validate: function() {
-      if (this.form && Object.values(this.form).length === 3) {
-      }
+    $_loadPlugins() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     }
   }
 };

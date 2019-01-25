@@ -1,5 +1,5 @@
 <template>
-  <section class="section" id="about">
+  <section class="section">
     <div data-aos="fade-up">
       <div class="section-heading">
         <h3 class="title is-2">Sobre mí</h3>
@@ -31,36 +31,37 @@
             </div>
           </div>
           <div class="column is-4">
-            <div class="card">
-              <div class="card-content">
-                <h3 class="title is-3 has-text-centered">Perfil</h3>
-
-                <div class="content">
-                  <table class="table-profile">
-                    <tr>
-                      <th colspan="1"></th>
-                      <th colspan="2"></th>
-                    </tr>
-                    <tr>
-                      <td>Ubicación:</td>
-                      <td>Alajuela/Costa Rica</td>
-                    </tr>
-                    <tr>
-                      <td>Celular:</td>
-                      <td>0000-00-00</td>
-                    </tr>
-                    <tr>
-                      <td>Email:</td>
-                      <td>jpcbdev@gmail.com</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="buttons is-centered">
-                  <a class="button is-link" href="#contact">
-                    <span>Descargar CV</span>
-                  </a>
-                </div>
-              </div>
+            <h3 class="title is-3 has-text-centered">Perfil</h3>
+            <div class="content">
+              <table class="table-profile">
+                <tr>
+                  <th colspan="1"></th>
+                  <th colspan="2"></th>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Ubicación:</strong>
+                  </td>
+                  <td>Alajuela/Costa Rica</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Celular:</strong>
+                  </td>
+                  <td>0000-00-00</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Correo:</strong>
+                  </td>
+                  <td>jpcbdev@gmail.com</td>
+                </tr>
+              </table>
+            </div>
+            <div class="buttons is-centered">
+              <a class="button is-link">
+                <span>Descargar CV</span>
+              </a>
             </div>
           </div>
           <div class="column is-4">
@@ -133,7 +134,39 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {},
+  mounted() {
+    this.$_loadPlugins();
+  },
+  beforeMount() {},
+  updated() {},
+  methods: {
+    $_loadPlugins() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+
+      let Siema = require("siema/dist/siema.min.js");
+      let slider = new Siema({
+        selector: ".siema",
+        duration: 200,
+        easing: "ease-out",
+        perPage: 1,
+        startIndex: 0,
+        draggable: false,
+        multipleDrag: false,
+        threshold: 20,
+        loop: true,
+        rtl: false,
+        onInit: () => {},
+        onChange: () => {}
+      });
+      setInterval(() => slider.next(), 6000);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  }
+};
 </script>
 <style scoped>
 section {
@@ -163,9 +196,9 @@ img {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 td {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 </style>

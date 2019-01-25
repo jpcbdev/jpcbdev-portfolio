@@ -32,9 +32,8 @@ export default {
 };
 </script>
 <style  scoped>
-footer {
+.footer {
   background-color: #212121;
-  padding: 3rem 1.5rem 4rem;
 }
 a {
   background-color: #212121;

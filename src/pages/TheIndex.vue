@@ -1,30 +1,30 @@
 <template>
   <main>
     <navbar/>
-    <hero/>
-    <services/>
-    <about/>
-    <contact/>
-    <foot/>
+    <router-view></router-view>
+    <!-- <foot/> -->
   </main>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
-import Hero from "@/components/Hero.vue";
-import Services from "@/components/Services.vue";
-import About from "@/components/About.vue";
-import Contact from "@/components/Contact.vue";
 import Foot from "@/components/Foot.vue";
 
 export default {
-  components: { Navbar, Hero, Services, About, Contact, Foot },
+  components: { Navbar, Foot },
+  data() {
+    return {};
+  },
   mounted() {
-    require("../plugins/scrollspy.js");
-    require("../plugins/sidenav.js");
-    require("../plugins/aos.js");
-    require("../plugins/slider.js");
-    require("../plugins/overscroll.js");
+    this.$_loadPlugins();
+  },
+  methods: {
+    $_loadPlugins() {
+      require("../plugins/scrollspy.js");
+      require("../plugins/sidenav.js");
+      require("../plugins/aos.js");
+      require("../plugins/overscroll.js");
+    }
   }
 };
 </script>
@@ -71,5 +71,34 @@ button {
 ::-webkit-scrollbar-track {
   border: none;
   background: #1d1f20;
+}
+
+/* buttons animations */
+a {
+  font-weight: bold;
+  color: white;
+}
+
+a:hover {
+  animation: wiggle 1s ease;
+  animation-iteration-count: 1;
+  color: white;
+}
+@keyframes wiggle {
+  20% {
+    transform: translateX(4px);
+  }
+  40% {
+    transform: translateX(-4px);
+  }
+  60% {
+    transform: translateX(2px);
+  }
+  80% {
+    transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 </style>

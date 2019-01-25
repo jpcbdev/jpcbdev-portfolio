@@ -1,5 +1,5 @@
 <template>
-  <section class="section" id="services">
+  <section class="section">
     <div data-aos="fade-up">
       <div class="section-heading">
         <h3 class="title is-2">Servicios</h3>
@@ -43,7 +43,9 @@
                   <i class="fas fa-mug-hot fa-2x"></i>
                 </h4>
                 <h4 class="title is-4 has-text-centered">Desarrollo Móvil</h4>
-                <p class="has-text-centered">Combinado con servicios de bases de datos serverless o embebidas</p>
+                <p
+                  class="has-text-centered"
+                >Combinado con servicios de bases de datos serverless o embebidas</p>
               </div>
             </div>
           </div>
@@ -95,7 +97,17 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  mounted() {
+    this.$_loadPlugins();
+  },
+  methods: {
+    $_loadPlugins() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  }
+};
 </script>
 <style scoped>
 section {
